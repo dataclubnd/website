@@ -49,7 +49,7 @@ export default function DashboardCard({
                 hover:underline
             "
             >
-            {linkLabel} →
+            {linkLabel}
             </Link>
         </div>
     </div>

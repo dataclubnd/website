@@ -37,8 +37,18 @@ export default function Events() {
 
   return (
     <>
-        <section className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold mb-6">Events</h2>
+        <section className="max-w-6xl mx-auto px-6 py-12">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            Events
+          </h1>
+
+          <p className="text-gray-600 text-base md:text-lg mx-auto">
+            Data Club projects are semester-long, student-led collaborations where
+            members work with real datasets and company partners. Projects span data
+            analysis, data engineering, software development, machine learning, and more.
+            No prior experience is required. Projects are application-based to ensure
+            motivated, balanced teams.
+          </p>
 
             {loading && <p>Loading events...</p>}
 

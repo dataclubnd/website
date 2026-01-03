@@ -3,7 +3,7 @@ import Logo from "../assets/DataClubLogoNoBG.png"
 
 export default function Header() {
   return (
-    <header className="bg-gray-900 text-white">
+    <header className="bg-gray-900 text-white fixed top-0 left-0 z-50 w-full">
       <div className="max-w-6xl mx-auto px-4 py-4">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <NavLink
