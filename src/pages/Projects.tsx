@@ -15,6 +15,11 @@ export default function Projects() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
+  const [termFilter, setTermFilter] = useState<string>("All")
+  const [yearFilter, setYearFilter] = useState<string>("")
+  const [searchFilter, setSearchFilter] = useState<string>("")
+
+
   useEffect(() => {
     const fetchProjects = async () => {
 
@@ -40,6 +45,20 @@ export default function Projects() {
 
     fetchProjects()
   }, [])
+
+  const filteredProjects = projects.filter((project) => {
+    const matchesTerm =
+      termFilter === "All" || project.term === termFilter
+  
+    const matchesYear =
+      yearFilter === "" || project.year === Number(yearFilter)
+  
+    const matchesSearch =
+      project.company.toLowerCase().includes(searchFilter.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchFilter.toLowerCase())
+  
+    return matchesTerm && matchesYear && matchesSearch
+  })  
 
   return (
     <>
@@ -90,8 +109,58 @@ export default function Projects() {
           <h2 className="text-2xl md:text-3xl font-bold mb-6">
             Current Projects
           </h2>
+
+          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Term
+              </label>
+              <select
+                value={termFilter}
+                onChange={(e) => setTermFilter(e.target.value)}
+                className="border rounded-lg px-3 py-2 text-sm w-full md:w-40"
+              >
+                <option value="All">All</option>
+                <option value="Fall">Fall</option>
+                <option value="Spring">Spring</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Year
+              </label>
+              <input
+                type="number"
+                placeholder="e.g. 2025"
+                value={yearFilter}
+                onChange={(e) => setYearFilter(e.target.value)}
+                className="border rounded-lg px-3 py-2 text-sm w-full md:w-32"
+              />
+            </div>
+
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Search
+              </label>
+              <input
+                type="text"
+                placeholder="Company or description..."
+                value={searchFilter}
+                onChange={(e) => setSearchFilter(e.target.value)}
+                className="border rounded-lg px-3 py-2 text-sm w-full"
+              />
+            </div>
+          </div>
+
+          { !loading && !error && filteredProjects.length == 0 && 
+              <p className="text-xl">
+                No Projects
+              </p>
+            }
+
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project, index) => (
+            {filteredProjects.map((project, index) => (
                 <div
                     key={index}
                     className="border rounded-lg p-4 shadow-sm"

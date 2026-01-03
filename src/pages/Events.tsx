@@ -13,6 +13,9 @@ export default function Events() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
+  const [dateFilter, setDateFilter] = useState<string>("")
+  const [searchFilter, setSearchFilter] = useState<string>("")
+
   useEffect(() => {
     const fetchEvents = async () => {
 
@@ -34,6 +37,18 @@ export default function Events() {
 
     fetchEvents()
   }, [])
+
+  const filteredEvents = events.filter((event) => {
+    const matchesSearch =
+      event.title.toLowerCase().includes(searchFilter.toLowerCase()) ||
+      event.description.toLowerCase().includes(searchFilter.toLowerCase())
+  
+    const matchesDate =
+      !dateFilter ||
+      new Date(event.time) >= new Date(dateFilter)
+  
+    return matchesSearch && matchesDate
+  })  
 
   return (
     <>
@@ -57,9 +72,46 @@ export default function Events() {
             )}
         </section>
 
-        <section className="max-w-6xl mx-auto">
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {events.map((event, index) => (
+        <section className="max-w-6xl mx-auto px-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
+              Upcoming Events
+            </h2>
+
+            <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  After Date
+                </label>
+                <input
+                  type="date"
+                  value={dateFilter}
+                  onChange={(e) => setDateFilter(e.target.value)}
+                  className="border rounded-lg px-3 py-2 text-sm w-full md:w-44"
+                />
+              </div>
+
+              <div className="flex-1">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Search
+                </label>
+                <input
+                  type="text"
+                  placeholder="Company or description..."
+                  value={searchFilter}
+                  onChange={(e) => setSearchFilter(e.target.value)}
+                  className="border rounded-lg px-3 py-2 text-sm w-full"
+                />
+              </div>
+            </div>
+
+            { !loading && !error && filteredEvents.length == 0 && 
+              <p className="text-xl">
+                No Events
+              </p>
+            }
+
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 pb-12">
+            {filteredEvents.map((event, index) => (
                 <div
                     key={index}
                     className="border rounded-lg p-4 shadow-sm"
@@ -69,14 +121,18 @@ export default function Events() {
                 {event.title}
                 </h3>
 
-                <p className="text-sm text-gray-500">
-                {new Date(event.time).toLocaleString(undefined, {
+                <p className="text-sm text-gray-500 mt-2">
+                🗓️ {new Date(event.time).toLocaleString(undefined, {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
                 hour: "numeric",
                 minute: "2-digit",
                 })}
+                </p>
+
+                <p className="text-sm text-gray-500 mt-2">
+                📍 {event.location}
                 </p>
 
                 <p className="mt-2 text-gray-700">
