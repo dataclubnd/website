@@ -65,7 +65,7 @@ export default function About() {
             We've expanded our presence through social media, launched a dedicated website, and increased 
             the number of general meetings and workshops we host.<br/><br/>
 
-            Our goal is to foster a culture of collaboration, curiosity, and responsible data use—one where 
+            Our goal is to foster a culture of collaboration, curiosity, and responsible data use where 
             students support each other and work together to make a positive impact beyond the classroom.
           </p>
         </div>

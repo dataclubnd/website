@@ -58,11 +58,17 @@ export default function Events() {
           </h1>
 
           <p className="text-gray-600 text-base md:text-lg mx-auto">
-            Data Club projects are semester-long, student-led collaborations where
-            members work with real datasets and company partners. Projects span data
-            analysis, data engineering, software development, machine learning, and more.
-            No prior experience is required. Projects are application-based to ensure
-            motivated, balanced teams.
+            Throughout each semester, the Data Club hosts a variety of club-wide events
+            designed to inform, engage, and support our members. These include project
+            kickoff meetings where we introduce upcoming projects, as well as end-of-semester
+            project galleries where each team presents their work, shares insights, and
+            reflects on their learning experience.<br/><br/>
+            
+            In addition, we organize hands-on
+            workshops and professional development opportunities focused on data-driven
+            skills, such as AI and machine learning workshops, technical tutorials, and
+            panel discussions with industry professionals. Our events are open, collaborative,
+            and centered around helping members grow both technically and professionally.
           </p>
 
             {loading && <p>Loading events...</p>}

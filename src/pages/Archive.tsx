@@ -25,6 +25,13 @@ export default function Archive() {
   const [loadingEvents, setLoadingEvents] = useState(true)
   const [errorEvents, setErrorEvents] = useState<string | null>(null)
 
+  const [dateFilter, setDateFilter] = useState<string>("")
+  const [searchEventsFilter, setSearchEventsFilter] = useState<string>("")
+
+  const [termFilter, setTermFilter] = useState<string>("All")
+  const [yearFilter, setYearFilter] = useState<string>("")
+  const [searchProjectsFilter, setSearchProjectsFilter] = useState<string>("")
+
   useEffect(() => {
     const fetchProjects = async () => {
       const { data, error } = await supabase
@@ -66,58 +73,160 @@ export default function Archive() {
     fetchEvents()
   }, [])
 
+  const filteredProjects = projects.filter((project) => {
+    const matchesTerm =
+      termFilter === "All" || project.term === termFilter
+  
+    const matchesYear =
+      yearFilter === "" || project.year === Number(yearFilter)
+  
+    const matchesSearch =
+      project.company.toLowerCase().includes(searchProjectsFilter.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchProjectsFilter.toLowerCase())
+  
+    return matchesTerm && matchesYear && matchesSearch
+  })  
+
+  const filteredEvents = events.filter((event) => {
+    const matchesSearch =
+      event.title.toLowerCase().includes(searchEventsFilter.toLowerCase()) ||
+      event.description.toLowerCase().includes(searchEventsFilter.toLowerCase())
+  
+    const matchesDate =
+      !dateFilter ||
+      new Date(event.time) >= new Date(dateFilter)
+  
+    return matchesSearch && matchesDate
+  }) 
+
   return (
-    <>
-        <h1 className="text-4xl font-bold mb-6">Archive</h1>
-        <section className="max-w-6xl mx-auto">
-            <h2 className="text-2xl font-bold mb-6">Projects</h2>
+    <section className="max-w-6xl mx-auto px-6 py-12">
+        <h1 className="text-3xl md:text-4xl font-bold mb-6">
+            Archive
+        </h1>
+        <section className="mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">Projects</h2>
 
-            {loadingProjects && <p>Loading projects...</p>}
-
-            {!loadingProjects && errorProjects && (
+          {!loadingProjects && errorProjects && (
             <p className="text-red-500">{errorProjects}</p>
-            )}
-        </section>
+          )}
 
-        <section className="max-w-6xl mx-auto">
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project, index) => (
-                <div
-                    key={index}
-                    className="border rounded-lg p-4 shadow-sm"
-                >
+          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Term
+              </label>
+              <select
+                value={termFilter}
+                onChange={(e) => setTermFilter(e.target.value)}
+                className="border rounded-lg px-3 py-2 text-sm w-full md:w-40"
+              >
+                <option value="All">All</option>
+                <option value="Fall">Fall</option>
+                <option value="Spring">Spring</option>
+              </select>
+            </div>
 
-                <h3 className="text-xl font-semibold">
-                {project.company}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Year
+              </label>
+              <input
+                type="number"
+                placeholder="e.g. 2025"
+                value={yearFilter}
+                onChange={(e) => setYearFilter(e.target.value)}
+                className="border rounded-lg px-3 py-2 text-sm w-full md:w-32"
+              />
+            </div>
+
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Search
+              </label>
+              <input
+                type="text"
+                placeholder="Company or description..."
+                value={searchProjectsFilter}
+                onChange={(e) => setSearchProjectsFilter(e.target.value)}
+                className="border rounded-lg px-3 py-2 text-sm w-full"
+              />
+            </div>
+          </div>
+
+          { !loadingProjects && !errorProjects && filteredProjects.length == 0 && 
+            <p className="text-xl">
+              No Projects
+            </p>
+          }            
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {filteredProjects.map((project, index) => (
+              <div
+                key={index}
+                className="border rounded-lg p-4 shadow-sm"
+              >
+                <h3 className="text-xl md:text-2xl font-semibold">
+                  {project.company}
                 </h3>
 
-                <p className="text-sm text-gray-500">
-                {project.term} {project.year}
+                <p className="text-sm md:text-lg text-gray-500">
+                  {project.term} {project.year}
                 </p>
 
                 <p className="mt-2 text-gray-700">
-                {project.description}
+                  {project.description}
                 </p>
 
-                <img src={project.image}></img>
-                </div>
+                <img src={project.image} alt={project.company} className="mt-3 rounded w-40 mx-auto py-5" />
+
+              </div>
             ))}
-            </div>
+          </div>
         </section>
 
         <section className="max-w-6xl mx-auto">
-            <h2 className="text-2xl font-bold mb-6">Events</h2>
-
-            {loadingEvents && <p>Loading events...</p>}
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">Events</h2>
 
             {!loadingEvents && errorEvents && (
-            <p className="text-red-500">{errorEvents}</p>
+              <p className="text-red-500">{errorEvents}</p>
             )}
-        </section>
 
-        <section className="max-w-6xl mx-auto">
+            <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  After Date
+                </label>
+                <input
+                  type="date"
+                  value={dateFilter}
+                  onChange={(e) => setDateFilter(e.target.value)}
+                  className="border rounded-lg px-3 py-2 text-sm w-full md:w-44"
+                />
+              </div>
+
+              <div className="flex-1">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Search
+                </label>
+                <input
+                  type="text"
+                  placeholder="Company or description..."
+                  value={searchEventsFilter}
+                  onChange={(e) => setSearchEventsFilter(e.target.value)}
+                  className="border rounded-lg px-3 py-2 text-sm w-full"
+                />
+              </div>
+            </div>
+
+            { !loadingEvents && !errorEvents && filteredEvents.length == 0 && 
+              <p className="text-xl">
+                No Events
+              </p>
+            }
+
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {events.map((event, index) => (
+            {filteredEvents.map((event, index) => (
                 <div
                     key={index}
                     className="border rounded-lg p-4 shadow-sm"
@@ -127,8 +236,18 @@ export default function Archive() {
                 {event.title}
                 </h3>
 
-                <p className="text-sm text-gray-500">
-                {new Date(event.time).toLocaleDateString()}
+                <p className="text-sm text-gray-500 mt-2">
+                🗓️ {new Date(event.time).toLocaleString(undefined, {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "2-digit",
+                })}
+                </p>
+
+                <p className="text-sm text-gray-500 mt-2">
+                📍 {event.location}
                 </p>
 
                 <p className="mt-2 text-gray-700">
@@ -139,6 +258,6 @@ export default function Archive() {
             ))}
             </div>
         </section>
-    </>
+    </section>
   )
 }
