@@ -14,6 +14,7 @@ type Project = {
   term: string
   year: number
   image: string
+  link: string
 }
 
 export default function Archive() {
@@ -163,27 +164,54 @@ export default function Archive() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map((project, index) => (
               <div
-                key={index}
-                className="border rounded-lg p-4 shadow-sm"
-              >
-                <h3 className="text-xl md:text-2xl font-semibold">
-                  {project.company}
-                </h3>
-
-                <p className="text-sm md:text-lg text-gray-500">
-                  {project.term} {project.year}
-                </p>
-
-                <p className="mt-2 text-gray-700">
-                  {project.description}
-                </p>
-
-                <img src={project.image} alt={project.company} className="mt-3 rounded w-40 mx-auto py-5" />
-
+              key={index}
+              className="border rounded-lg p-4 shadow-sm flex flex-col h-full"
+            >
+              <h3 className="text-xl md:text-2xl font-semibold">
+                {project.company}
+              </h3>
+            
+              <p className="text-sm md:text-lg text-gray-500">
+                {project.term} {project.year}
+              </p>
+            
+              <p className="mt-2 text-gray-700">
+                {project.description}
+              </p>
+            
+              {project.link && project.link.trim() !== "" && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      mt-3
+                      self-start
+                      rounded-lg
+                      bg-[#C99700] text-white
+                      px-4 py-2
+                      text-sm font-medium
+                      hover:bg-[#B38600]
+                      transition
+                    "
+                  >
+                    See more
+                  </a>
+                )}
+            
+              <div className="flex-1 flex items-center justify-center mt-4">
+                <img
+                  src={project.image}
+                  alt={project.company}
+                  className="rounded w-40"
+                />
               </div>
+            </div>
             ))}
           </div>
         </section>
+
+        
 
         <section className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6">Events</h2>

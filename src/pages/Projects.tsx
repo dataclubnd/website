@@ -8,6 +8,7 @@ type Project = {
   term: string
   year: number
   image: string
+  link: string
 }
 
 export default function Projects() {
@@ -176,6 +177,10 @@ export default function Projects() {
 
                 <p className="mt-2 text-gray-700">
                 {project.description}
+                </p>
+
+                <p className="mt-2 text-blue-200">
+                {project.link}
                 </p>
 
                 <img src={project.image} alt={project.company} className="mt-3 rounded w-40 mx-auto py-5" />
