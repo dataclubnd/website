@@ -82,6 +82,10 @@ export default function Home() {
       fetchEvent()
     }, [])
 
+    const cardsCount =
+    (event && !loadingEvent && !errorEvent ? 1 : 0) +
+    (project && !loadingProject && !errorProject ? 1 : 0)
+
     return (
       <section>
         <div className="relative w-full">
@@ -96,8 +100,12 @@ export default function Home() {
         </div>
 
         <div className="max-w-6xl mx-auto px-6 py-3 md:py-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
-
+          <div
+            className={`
+              grid gap-3 md:gap-6
+              ${cardsCount === 2 ? "md:grid-cols-2" : "grid-cols-1"}
+            `}
+          >
               { !loadingEvent && !errorEvent && event &&
               <DashboardCard
               heading="Upcoming Event"
