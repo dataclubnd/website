@@ -6,6 +6,7 @@ type Event = {
   description: string
   time: string
   location: string
+  link: string
 }
 
 export default function Events() {
@@ -144,6 +145,26 @@ export default function Events() {
                 <p className="mt-2 text-gray-700">
                 {event.description}
                 </p>
+
+                {event.link && event.link.trim() !== "" && (
+                  <a
+                    href={event.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      mt-3
+                      self-start
+                      rounded-lg
+                      bg-[#C99700] text-white
+                      px-4 py-2
+                      text-sm font-medium
+                      hover:bg-[#B38600]
+                      transition
+                    "
+                  >
+                    See more
+                  </a>
+                )}
                 
                 </div>
             ))}

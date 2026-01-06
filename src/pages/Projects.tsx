@@ -179,9 +179,25 @@ export default function Projects() {
                 {project.description}
                 </p>
 
-                <p className="mt-2 text-blue-200">
-                {project.link}
-                </p>
+                {project.link && project.link.trim() !== "" && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      mt-3
+                      self-start
+                      rounded-lg
+                      bg-[#C99700] text-white
+                      px-4 py-2
+                      text-sm font-medium
+                      hover:bg-[#B38600]
+                      transition
+                    "
+                  >
+                    See more
+                  </a>
+                )}
 
                 <img src={project.image} alt={project.company} className="mt-3 rounded w-40 mx-auto py-5" />
 

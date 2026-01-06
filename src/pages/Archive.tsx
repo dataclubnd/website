@@ -6,6 +6,7 @@ type Event = {
   description: string
   time: string
   location: string
+  link: string
 }
 
 type Project = {
@@ -53,12 +54,9 @@ export default function Archive() {
   useEffect(() => {
     const fetchEvents = async () => {
 
-      const now = new Date().toISOString()
-
       const { data, error } = await supabase
         .from('events')
         .select('*')
-        .gte('time', now) 
         .order('time', { ascending: true })
 
       console.log(data)
@@ -281,6 +279,27 @@ export default function Archive() {
                 <p className="mt-2 text-gray-700">
                 {event.description}
                 </p>
+
+                {event.link && event.link.trim() !== "" && (
+                  <div className="mt-3">
+                    <a
+                    href={event.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      self-start
+                      rounded-lg
+                      bg-[#C99700] text-white
+                      px-4 py-2
+                      text-sm font-medium
+                      hover:bg-[#B38600]
+                      transition
+                    "
+                  >
+                    See more
+                  </a>
+                  </div>
+                )}
                 
                 </div>
             ))}

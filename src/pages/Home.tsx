@@ -64,9 +64,13 @@ export default function Home() {
 
     useEffect(() => {
       const fetchEvent = async () => {
+
+        const now = new Date().toISOString()
+        
         const { data, error } = await supabase
         .from('events')
         .select('*')
+        .gte('time', now) 
         .order('time', { ascending: false })
         .limit(1)
         .maybeSingle()
