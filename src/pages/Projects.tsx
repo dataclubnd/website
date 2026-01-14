@@ -90,7 +90,7 @@ export default function Projects() {
             </h3>
 
             <Link
-              to="/https://docs.google.com/forms/d/e/1FAIpQLSdU8uHjnIimwaY7V8sMyWHLzZmyZ4IJkEXG9ekol39Qmywiig/viewform?usp=dialog"
+              to="https://docs.google.com/forms/d/e/1FAIpQLSdKD76jefuYAhrbGf8yLVUGiJIE_jSfXw-t87OdwB7ACxp8zw/viewform?usp=publish-editor"
               className="
                 inline-flex items-center justify-center
                 rounded-lg

@@ -23,7 +23,7 @@ export default function CTASection() {
             sm:flex-row
           ">
             <CTACard
-            to="/https://docs.google.com/forms/d/e/1FAIpQLSfSo9FI2kxPyMN4Xk5Imw2HReI23UrWqjbe8PcgXcWvRsPSLg/viewform"
+            to="https://docs.google.com/forms/d/e/1FAIpQLSfSo9FI2kxPyMN4Xk5Imw2HReI23UrWqjbe8PcgXcWvRsPSLg/viewform"
             target="_blank"
             text="Join Mailing List"
             color="bg-[#C99700]"
