@@ -162,24 +162,23 @@ export default function Projects() {
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map((project, index) => (
-                <div
-                    key={index}
-                    className="border rounded-lg p-4 shadow-sm"
-                >
-
-                <h3 className="text-xl md:text-2xl font-semibold">
+              <div
+              key={index}
+              className="border rounded-lg p-4 shadow-sm flex flex-col h-full"
+            >
+              <h3 className="text-xl md:text-2xl font-semibold">
                 {project.company}
-                </h3>
-
-                <p className="text-sm md:text-lg text-gray-500">
+              </h3>
+            
+              <p className="text-sm md:text-lg text-gray-500">
                 {project.term} {project.year}
-                </p>
-
-                <p className="mt-2 text-gray-700">
+              </p>
+            
+              <p className="mt-2 text-gray-700">
                 {project.description}
-                </p>
-
-                {project.link && project.link.trim() !== "" && (
+              </p>
+            
+              {project.link && project.link.trim() !== "" && (
                   <a
                     href={project.link}
                     target="_blank"
@@ -198,10 +197,15 @@ export default function Projects() {
                     See more
                   </a>
                 )}
-
-                <img src={project.image} alt={project.company} className="mt-3 rounded w-40 mx-auto py-5" />
-
-                </div>
+            
+              <div className="flex-1 flex items-center justify-center mt-4">
+                <img
+                  src={project.image}
+                  alt={project.company}
+                  className="rounded w-40"
+                />
+              </div>
+            </div>
             ))}
             </div>
         </section>
