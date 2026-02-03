@@ -24,6 +24,7 @@ export default function CTACard({ to, color, hover, text, target="_self", border
         ${hover}
         transition
         ${border}
+        whitespace-nowrap
       `}
       target={target}
     >

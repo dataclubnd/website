@@ -6,7 +6,7 @@ export default function CTASection() {
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="
           flex flex-col gap-6
-          md:flex-row md:items-center md:justify-between
+          lg:flex-row lg:items-center lg:justify-between
         ">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-2">

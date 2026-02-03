@@ -234,9 +234,11 @@ export default function Projects() {
                       to="https://www.paypal.com/ncp/payment/KLLKM53LSSZDA"
                       className="
                         inline-flex items-center justify-center
+                        whitespace-nowrap
                         rounded-lg
                         bg-[#C99700]
                         px-6 py-3
+                        md: px-20
                         text-sm md:text-base font-medium
                         hover:bg-[#B38600]
                         transition
