@@ -209,6 +209,46 @@ export default function Projects() {
             ))}
             </div>
         </section>
+
+        <section className="bg-gray-50 border-t border-gray-200">
+              <div className="max-w-6xl mx-auto px-6 py-12">
+                <div className="
+                  flex flex-col gap-6
+                  md:flex-row md:items-center md:justify-between
+                ">
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-bold mb-2">
+                      Already in a project?
+                    </h2>
+                    <p className="text-gray-600 max-w-xl">
+                      We require $5 dues per semester to be involved in our projects. All of this
+                      is used for funding in order to provide food in events and have traveling teams.
+                    </p>
+                  </div>
+        
+                  <div className="
+                    flex flex-col gap-3
+                    sm:flex-row
+                  ">
+                    <Link
+                      to="https://www.paypal.com/ncp/payment/KLLKM53LSSZDA"
+                      className="
+                        inline-flex items-center justify-center
+                        rounded-lg
+                        bg-[#C99700]
+                        px-6 py-3
+                        text-sm md:text-base font-medium
+                        hover:bg-[#B38600]
+                        transition
+                        text-white
+                      "
+                      >
+                        Pay Dues
+                      </Link>
+                  </div>
+                </div>
+              </div>
+            </section>
     </>
   )
 }
