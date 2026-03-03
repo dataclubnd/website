@@ -1,8 +1,8 @@
 import ImageCarousel from "../components/ImageCarousel"
-import img8451SP25 from "../assets/8451_GroupPhoto3.png"
-import imgAunalyticsFL25 from "../assets/Aunalytics.jpeg"
-import imgAIWorkshopFL25 from "../assets/AI_Workshop.jpg"
-import imgProjectGalleryFL25 from "../assets/ProjectGallerySP25.png"
+import img8451SP25 from "../assets/8451_GroupPhoto.webp"
+import imgAunalyticsFL25 from "../assets/Aunalytics.webp"
+import imgAIWorkshopFL25 from "../assets/AI_Workshop.webp"
+import imgProjectGalleryFL25 from "../assets/ProjectGallerySP25.webp"
 import DashboardCard from "../components/DashboardCard"
 import WhatWeDoCard from "../components/WhatWeDoCard"
 import CTASection from "../components/CTA"
@@ -91,16 +91,15 @@ export default function Home() {
     (project && !loadingProject && !errorProject ? 1 : 0)
 
     return (
-      <section>
-        <div className="relative w-full">
+      <section className="bg--white">
+        <div className="relative w-full h-full">
           <ImageCarousel images={images} />
-          <div className="absolute inset-0">
-            <div className="max-w-6xl mx-auto h-full flex items-end px-0 pb-0 justify-center md:justify-start">
-              <h2 className="text-white font-bold drop-shadow-lg text-[clamp(1rem,4vw,3rem)] px-5">
-                Welcome to the Data Club of Notre Dame
-              </h2>
-            </div>
+          <div className="bg--black w-full h-full absolute top-0 left-0 opacity-80">
           </div>
+          <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <h3 className="animate-on-load text-white font-bold  md:text-7xl lg:text-8xl text-center mb-0 pb-2"> As tech gets more powerful </h3>
+            <h2 className="animate-on-load animate-duration-3s golden font-semibold md:text-2xl lg:text-4xl text-center p-1"> No one at ND gets left behind </h2>
+         </div>
         </div>
 
         <div className="max-w-6xl mx-auto px-6 py-3 md:py-6">

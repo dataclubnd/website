@@ -99,7 +99,7 @@ export default function Archive() {
   }) 
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-12">
+    <section className="max-w-6xl mx-auto px-6 py-12 bg--white">
         <h1 className="text-3xl md:text-4xl font-bold mb-6">
             Archive
         </h1>

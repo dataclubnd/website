@@ -1,6 +1,6 @@
-import imgInstagram from "../assets/instagram.png"
-import imgLinkedIn from "../assets/linkedin.png"
-import imgGmail from "../assets/gmail.png"
+import imgInstagram from "../assets/instagram.webp"
+import imgLinkedIn from "../assets/linkedin.webp"
+import imgGmail from "../assets/gmail.webp"
 
 export default function Footer() {
     return (

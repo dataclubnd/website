@@ -1,11 +1,33 @@
 @import "tailwindcss";
 
-@theme {
-  --font-play: "Play", sans-serif;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Play', sans-serif;
 }
 
-@layer base {
-  body {
-    font-family: var(--font-play);
-  }
+body {
+  scroll-behavior: smooth;
+}
+
+.golden {
+  color: 	var(--brand-gold-light);
+}
+.small-logo {
+  width: 40px;
+}
+.brand {
+  background-color: var(--brand-blue);
+}
+
+.left {
+  display: flex !important;
+  justify-content: left !important;
+}
+.bottom {
+  display: flex !important;
+  justify-content: bottom !important;
+}
+.center {
+  width: 100vw;
+  display: flex !important;
+  justify-content: center !important;
 }

@@ -62,7 +62,7 @@ export default function Projects() {
   })  
 
   return (
-    <>
+    <div className="bg--white">
         <section className="max-w-6xl mx-auto px-6 py-12">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             Projects
@@ -83,21 +83,17 @@ export default function Projects() {
             )}
         </section>
 
-        <section className="bg-gray-900 text-white">
-          <div className="max-w-6xl mx-auto px-6 py-12 text-center">
-            <h3 className="text-lg md:text-2xl font-bold mb-4">
+        <section className="bg--gray-light">
+          <div className="max-w-6xl mx-auto p-12 text-center">
+            <h3 className=" text-lg md:text-2xl font-bold">
               Interested in joining a project?
             </h3>
 
             <Link
               to="https://docs.google.com/forms/d/e/1FAIpQLSdKD76jefuYAhrbGf8yLVUGiJIE_jSfXw-t87OdwB7ACxp8zw/viewform?usp=publish-editor"
               className="
-                inline-flex items-center justify-center
-                rounded-lg
-                bg-[#C99700]
-                px-6 py-3
-                text-sm md:text-base font-medium
-                hover:bg-[#B38600]
+                btn btn--cta
+                items-center justify-center
                 transition
               "
             >
@@ -233,16 +229,9 @@ export default function Projects() {
                     <Link
                       to="https://www.paypal.com/ncp/payment/KLLKM53LSSZDA"
                       className="
-                        inline-flex items-center justify-center
-                        whitespace-nowrap
-                        rounded-lg
-                        bg-[#C99700]
-                        px-6 py-3
-                        md: px-20
-                        text-sm md:text-base font-medium
-                        hover:bg-[#B38600]
-                        transition
-                        text-white
+                      btn btn--cta
+                      items-center justify-center
+                      transition
                       "
                       >
                         Pay Dues
@@ -251,6 +240,6 @@ export default function Projects() {
                 </div>
               </div>
             </section>
-    </>
+    </div>
   )
 }

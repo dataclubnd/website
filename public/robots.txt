@@ -1,0 +1,32 @@
+# Robots.txt for Notre Dame Data Club
+# Controls search engine crawler access and behavior
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Specific crawl rate settings
+Crawl-delay: 1
+
+# Disallow admin and private paths (if they exist)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: *.pdf$
+Disallow: *.doc$
+
+# Sitemap location
+Sitemap: https://dataclub.nd.edu/sitemap.xml
+
+# Allow specific search engines for better crawling
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /

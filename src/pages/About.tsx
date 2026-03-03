@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function About() {
     return (
-      <section className="max-w-6xl mx-auto px-6 py-12">
+      <section className="max-w-6xl mx-auto px-6 py-12 bg--white">
         <div className="max-w-6xl mx-auto mb-10">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             About the Data Club
@@ -73,10 +73,10 @@ export default function About() {
         <div className="mt-12 text-center">
           <Link
             to="/projects"
-            className="inline-flex items-center justify-center
-                      rounded-lg bg-[#C99700] text-white
-                      px-8 py-3 text-base font-medium
-                      hover:bg-[#B38600] transition"
+            className="
+                btn btn--more btn--neutral
+                items-center justify-center
+                transition"
           >
             Explore Our Projects
           </Link>
