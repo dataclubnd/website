@@ -139,7 +139,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto px-6 py-1 mb-10">
+        <div className=" max-w-6xl mx-auto px-6 py-1 mb-10">
           <h2 className="text-2xl md:text-3xl font-bold mb-3">
             What We Do
           </h2>

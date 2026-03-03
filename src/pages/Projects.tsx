@@ -20,6 +20,7 @@ export default function Projects() {
   const [yearFilter, setYearFilter] = useState<string>("")
   const [searchFilter, setSearchFilter] = useState<string>("")
 
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>([])
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -40,6 +41,7 @@ export default function Projects() {
         setError(error.message)
       } else {
         setProjects(data)
+        setFilteredProjects(data)
       }
       setLoading(false)
     }
@@ -47,7 +49,10 @@ export default function Projects() {
     fetchProjects()
   }, [])
 
-  const filteredProjects = projects.filter((project) => {
+
+  // Filter projects on filter field change
+  useEffect(() => {
+   const filtered = projects.filter((project) => {
     const matchesTerm =
       termFilter === "All" || project.term === termFilter
   
@@ -57,9 +62,14 @@ export default function Projects() {
     const matchesSearch =
       project.company.toLowerCase().includes(searchFilter.toLowerCase()) ||
       project.description.toLowerCase().includes(searchFilter.toLowerCase())
-  
+
     return matchesTerm && matchesYear && matchesSearch
-  })  
+   })
+
+  setFilteredProjects(filtered)
+
+  }, [termFilter, yearFilter, searchFilter, projects])
+
 
   return (
     <div className="bg--white">
@@ -232,6 +242,7 @@ export default function Projects() {
                       btn btn--cta
                       items-center justify-center
                       transition
+                      w-100
                       "
                       >
                         Pay Dues
