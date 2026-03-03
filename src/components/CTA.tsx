@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export default function CTASection() {
   return (
-    <section className="bg--gray-extra-light border-t border-gray-200">
+    <section className="bg--gray-extra-extra-light border-t border-gray-200">
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="
           flex flex-col gap-3
