@@ -4,7 +4,7 @@ import Logo from "../assets/logo.svg"
 export default function Header() {
   return (
 
-<header id="header" className="site-header left bg--gray-light">
+<header id="header" className="site-header left bg--brand-blue">
   <a className="header-mark-mobile " href="https://www.nd.edu/" title="University of Notre Dame">
     <img src={Logo} alt="University of Notre Dame" className="small-logo p-4" />
     <span className="visually-hidden">University of Notre Dame</span>

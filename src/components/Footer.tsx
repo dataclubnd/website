@@ -4,7 +4,7 @@ import imgGmail from "../assets/gmail.webp"
 
 export default function Footer() {
     return (
-      <footer className="bg-gray-900 text-gray-400 px-6 py-4 mt-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <footer className="bg--brand-blue-dark px-6 py-4 mt-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-sm">
           © {new Date().getFullYear()} Data Club of Notre Dame
         </p>
