@@ -12,7 +12,7 @@ export default function CTASection() {
             <h2 className="text-2xl md:text-4xl font-bold mb-2">
               Ready to get involved?
             </h2>
-            <p className=" max-w-xl sm:text-lg md:text-2xl">
+            <p className=" max-w-xl text-2xl lg:text-sm">
               Join the Notre Dame Data Club to work on real projects, learn practical
               data skills, and connect with other students passionate about data.
             </p>
