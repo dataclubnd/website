@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Play', sans-serif;
+  font-family: var(--font-default) !important;
 }
 
 body {
@@ -12,10 +12,14 @@ body {
   color: 	var(--brand-gold-light);
 }
 .small-logo {
-  width: 40px;
+  width: 30px;
 }
-.brand {
-  background-color: var(--brand-blue);
+.logo {
+  width: 70px !important;
+}
+.title {
+  font-size: 2.5rem !important;
+  justify-content: flex-end;
 }
 
 .left {

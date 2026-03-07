@@ -9,10 +9,10 @@ export default function CTASection() {
           lg:flex-row lg:items-center lg:justify-between
         ">
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">
+            <h2 className="text-2xl md:text-4xl font-bold mb-2">
               Ready to get involved?
             </h2>
-            <p className=" max-w-xl">
+            <p className=" max-w-xl sm:text-lg md:text-2xl">
               Join the Notre Dame Data Club to work on real projects, learn practical
               data skills, and connect with other students passionate about data.
             </p>

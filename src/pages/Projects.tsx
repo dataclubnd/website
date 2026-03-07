@@ -166,7 +166,7 @@ export default function Projects() {
               </p>
             }
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2">
             {filteredProjects.map((project, index) => (
               <div
               key={index}
@@ -184,6 +184,15 @@ export default function Projects() {
                 {project.description}
               </p>
             
+            
+              <div className="flex-1 flex items-center justify-center mt-4">
+                <img
+                  src={project.image}
+                  alt={project.company}
+                  className="rounded w-40"
+                />
+              </div>
+
               {project.link && project.link.trim() !== "" && (
                   <a
                     href={project.link}
@@ -204,14 +213,6 @@ export default function Projects() {
                     See more
                   </a>
                 )}
-            
-              <div className="flex-1 flex items-center justify-center mt-4">
-                <img
-                  src={project.image}
-                  alt={project.company}
-                  className="rounded w-40"
-                />
-              </div>
             </div>
             ))}
             </div>

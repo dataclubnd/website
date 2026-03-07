@@ -22,7 +22,7 @@ export default function DashboardCard({
         bg-white
         ">
         <h3 className="
-            text-base md:text-lg
+            text-3xl
             font-semibold
             mb-2 md:mb-4
         ">
@@ -30,10 +30,10 @@ export default function DashboardCard({
         </h3>
 
         <div className="space-y-1 md:space-y-2">
-            <p className="text-lg md:text-xl font-bold">
+            <p className="text-3xl font-bold golden">
             {title}
             </p>
-            <p className="text-xs md:text-sm text-gray-500">
+            <p className="text-xl">
             {dateText}
             </p>
         </div>
@@ -43,7 +43,7 @@ export default function DashboardCard({
             to={linkTo}
             className="
                 inline-block
-                text-xs md:text-sm
+                text-sm
                 font-medium
                 text-blue-600
                 hover:underline

@@ -22,20 +22,20 @@ export default function ImageCarousel({
   }, [images.length, interval])
 
   return (
-    <div className="w-full overflow-hidden">
+    <div className="w-full min-h-dvh overflow-hidden">
       <div
-        className="flex transition-transform duration-700 ease-in-out"
+        className="flex min-h-dvh transition-transform duration-700 ease-in-out"
         style={{
           transform: `translateX(-${currentIndex * 100}%)`,
         }}
       >
         {images.map((src, index) => (
-          <div key={index} className="min-w-full">
-            <div className="aspect-[80/27] w-full overflow-hidden">
+          <div key={index} className="min-w-full min-h-dvh">
+            <div className="min-w-dvh h-dvh overflow-hidden object-bottom">
               <img
                 src={src}
                 alt={`Slide ${index + 1}`}
-                className="w-full h-full object-cover"
+                className="h-dvh min-w-full object-cover"
               />
             </div>
           </div>
