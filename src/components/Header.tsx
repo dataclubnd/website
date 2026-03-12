@@ -1,7 +1,20 @@
 
 import Logo from "../assets/DataClubLogo.svg";
+import { useEffect } from "react";
 
 export default function Header() {
+
+    useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://conductor.nd.edu/javascripts/themes/ndt/4.0/ndt.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
 <header id="header" className="site-header bg--brand-blue">
   <a className="header-mark-mobile" href="https://www.dataclub.nd.edu/" title="Notre Dame Data Club">
@@ -15,7 +28,7 @@ export default function Header() {
       <img className="logo" aria-hidden="true" alt="Notre Dame Data Club Logo" src={Logo}></img>
       </a>
       <div className="header-title-name justify-center">
-        <h1 id="site-title" className="title"><a href="/">Notre Dame Data Club</a></h1>
+        <a href="/"><h1 id="site-title" className="title">Notre Dame Data Club</h1></a>
       </div>
     </div>
     <div className="header-nav">

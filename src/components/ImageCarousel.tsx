@@ -33,6 +33,7 @@ export default function ImageCarousel({
           <div key={index} className="min-w-full min-h-dvh">
             <div className="min-w-dvh h-dvh overflow-hidden object-bottom">
               <img
+                fetchPriority="high"
                 src={src}
                 alt={`Slide ${index + 1}`}
                 className="h-dvh min-w-full object-cover"

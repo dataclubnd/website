@@ -97,7 +97,7 @@ export default function Home() {
           <div className="bg--black w-full h-full absolute top-0 left-0 opacity-80">
           </div>
           <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <h3 className="animate-on-load text-white font-bold  md:text-7xl lg:text-8xl text-center mb-0 pb-2"> As tech gets more powerful </h3>
+            <h2 className="animate-on-load text-white font-bold  md:text-7xl lg:text-8xl text-center mb-0 pb-2"> As tech gets more powerful </h2>
             <h2 className="animate-on-load animate-duration-3s golden font-semibold md:text-2xl lg:text-4xl text-center p-1"> No one at ND gets left behind </h2>
          </div>
         </div>
@@ -140,9 +140,9 @@ export default function Home() {
         </div>
 
         <div className=" max-w-6xl mx-auto px-6 py-1 mb-10">
-          <h2 className="text-2xl sm:text-4xl font-bold mb-3">
+          <h3 className="text-2xl sm:text-4xl font-bold mb-3">
             What We Do
-          </h2>
+          </h3>
 
           <div className="grid gap-4 md:gap-6 md:grid-cols-3">
             <WhatWeDoCard
