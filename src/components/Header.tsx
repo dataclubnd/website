@@ -1,50 +1,44 @@
 
-import Logo from "../assets/DataClubLogo.svg";
-import { useEffect } from "react";
+import Logo from "../assets/DataClubLogo.svg"
 
 export default function Header() {
-
-    useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://conductor.nd.edu/javascripts/themes/ndt/4.0/ndt.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
-<header id="header" className="site-header bg--brand-blue">
-  <a className="header-mark-mobile" href="https://www.dataclub.nd.edu/" title="Notre Dame Data Club">
-    <img className="small-logo" aria-hidden="true" aria-label="Notre Dame Data Club" src={Logo}></img>
-    <span className="visually-hidden">Notre Dame Data Club</span>
-  </a>
+    <header id="header" className="site-header bg--brand-blue flex center">
+      <div className="max-w-100">
 
-  <div className="header-group grid-cols-none">
-    <div className="header-title">
-      <a href="/" accessKey="1" title="Homepage shortcut key = 1">
-      <img className="logo" aria-hidden="true" alt="Notre Dame Data Club Logo" src={Logo}></img>
-      </a>
-      <div className="header-title-name justify-center">
-        <a href="/"><h1 id="site-title" className="title">Notre Dame Data Club</h1></a>
+        {/* Logo + Site Title */}
+        <div className="header-title items-center gap-3 sm:gap-4">
+          <a href="/" aria-label="Notre Dame Data Club – home">
+            <img
+              src={Logo}
+              alt=""
+              aria-hidden="true"
+              className="logo"
+            />
+          </a>
+          <div className="header-title-name border-l border-white/20 pl-3 sm:pl-4">
+            <h1 id="site-title" className="site-title">
+              <a href="/" title="Homepage">Notre Dame Data Club</a>
+            </h1>
+          </div>
+        </div>
+
+        {/* Primary Navigation */}
+        <nav
+          id="nav-primary"
+          className="nav-primary"
+          aria-label="Primary"
+        >
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/archive">Archives</a></li>
+            <li><a href="mailto:dataclub@nd.edu">Contact</a></li>
+          </ul>
+        </nav>
+
       </div>
-    </div>
-    <div className="header-nav">
-</div>
-<nav id="nav-primary" className="nav-primary" aria-label="Primary">
-  <div id="primary">
-    <ul className="justify-center">
-      <li><a href="/About">About</a></li>
-      <li><a href="/Events">Events</a></li>
-      <li><a href="/Projects">Projects</a></li>
-      <li><a href="/Archive">Archives</a></li>
-      <li><a href="mailto:dataclub@nd.edu">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-</div>
-</header>
+    </header>
   )
 }

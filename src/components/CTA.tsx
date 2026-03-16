@@ -2,8 +2,8 @@ import { Link } from "react-router-dom"
 
 export default function CTASection() {
   return (
-    <section className="bg--gray-extra-extra-light border-t border-gray-200">
-      <div className="max-w-6xl mx-auto px-6 py-12">
+    <section className="bg--brand-blue-light border-t border-gray-200">
+      <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="
           flex flex-col gap-3
           lg:flex-row lg:items-center lg:justify-between
@@ -12,7 +12,7 @@ export default function CTASection() {
             <h2 className="text-2xl md:text-4xl font-bold mb-2">
               Ready to get involved?
             </h2>
-            <p className=" max-w-xl text-2xl lg:text-sm">
+            <p className=" max-w-xl text-sm lg:text-sm pb-3">
               Join the Notre Dame Data Club to work on real projects, learn practical
               data skills, and connect with other students passionate about data.
             </p>
@@ -28,7 +28,7 @@ export default function CTASection() {
       className={`
           btn btn--cta
           items-center justify-center
-          transition whitespace-nowrap
+          transition whitespace-nowrap w-full md:w-auto
       `}
       target="_blank"
     >
@@ -41,7 +41,7 @@ export default function CTASection() {
       className={`
           btn btn--more
           items-center justify-center
-          transition whitespace-nowrap
+          transition whitespace-nowrap  w-full md:w-auto
       `}
       target="_self"
     >
@@ -53,7 +53,7 @@ export default function CTASection() {
       className={`
           btn btn--more 
           items-center justify-center
-          transition whitespace-nowrap
+          transition whitespace-nowrap  w-full md:w-auto
       `}
             target="_self"
     >

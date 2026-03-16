@@ -30,7 +30,7 @@ export default function DashboardCard({
         </h3>
 
         <div className="space-y-1 md:space-y-2">
-            <p className="text-3xl font-bold golden">
+            <p className="text-3xl golden">
             {title}
             </p>
             <p className="text-xl">

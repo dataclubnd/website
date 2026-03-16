@@ -3,36 +3,9 @@
   .animate-on-load {
     animation: fade-in 1s ease-out forwards;
   }
-  .animate-duration-2s {
-    animation-duration: 2s !important;
-  }
     .animate-duration-3s {
     animation-duration: 3s !important;
     animation-timing-function: ease-in-out !important;
-  }
-
-  @supports (animation-timeline: view()) {
-    .animate {
-      animation-timeline: view();
-      animation-range: 0 40%;
-      animation-timing-function: ease-out;
-      transform-origin: center top;
-      animation-duration: 1s;
-      animation-fill-mode: forwards;
-    }
-
-    .animate--fade-in {
-      animation-name: fade-in;
-    }
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate,
-  .animate--fade-in,
-  .fade-in-load {
-    animation: none !important;
-    opacity: 1;
   }
 }
 

@@ -1,0 +1,386 @@
+
+/* ─── Primary Navigation ────────────────────────────────────── */
+
+:root {
+        color-scheme: light dark;
+        --brand-blue: #0c2340;
+        --brand-blue-light: #143865;
+        --brand-blue-bright: #1c4f8f;
+        --brand-blue-dark: #081629;
+        --brand-gold: #ae9142;
+        --brand-gold-light: #ddc278;
+        --brand-gold-bright: #d39f10;
+        --brand-gold-dark: #8c7535;
+        --brand-green: #0a843d;
+        --brand-green-bright: #35b36a;
+        --brand-green-dark: #085e2c;
+        --warm-white: #f8f4ec;
+        --warm-white-dark: #efe9d9;
+        --white: #fff;
+        --gray: #555;
+        --gray-dark: #333;
+        --gray-light: #d6dadf;
+        --gray-extra-light: #e9ebee;
+        --gray-extra-extra-light: #f1f2f4;
+        --sky-blue: #e1e8f2;
+        --sky-blue-light: #edf2f9;
+        --sky-blue-dark: #c1cddd;
+        --link-blue: #0a67bc;
+        --link-focus: #15a6b5;
+        --font-default: GP, "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+        --font-heading: Garamond-Pro, "Adobe Garamond", Garamond, Georgia, "Times New Roman", Times, serif;
+        --grid-gap-xs: 0.5rem;
+        --grid-gap-sm: 1.25rem;
+        --grid-gap: 1.75rem;
+        --grid-gap-lg: 2.5rem;
+        --grid-gap-xl: 5rem;
+        --border-primary: 1px solid light-dark(rgba(0, 0, 0, .12), rgba(193, 205, 221, .25));
+        --border-secondary: 1px solid light-dark(var(--brand-blue-light), rgba(193, 205, 221, .15));
+        --border-radius: 4px;
+        --anim-duration-fast: 125ms;
+        --anim-duration: 325ms;
+        --anim-duration-moderate: 500ms;
+        --anim-duration-slow: 750ms;
+        --anim-ease: ease-in-out;
+        --mark-shield: #333;
+        --mark-text: #333
+    }
+
+.bg--white {
+color: var(--brand-blue);
+  background-color: var(--white);
+--gradient-color: var(--white)
+}
+
+.bg--black {
+  background-color: #000;
+  --gradient-color: #000
+}
+
+.bg--brand-blue {
+    color: var(--gray-extra-light);
+  background-color: var(--brand-blue);
+  --gradient-color: var(--brand-blue)
+}
+.bg--brand-blue-light {
+    color: var(--gray-light);
+  background-color: var(--brand-blue-light);
+  --gradient-color: var(--brand-blue-light)
+}
+.bg--brand-blue-dark {
+  background-color: #081629;
+  background-color: var(--brand-blue-dark);
+  color: #fff;
+  color-scheme: dark;
+  --gradient-color: var(--brand-blue-dark)
+}
+
+[data-theme=light] .bg--warm-white .btn {
+  border-color: #0c2340;
+  border-color: var(--brand-blue)
+}
+
+[data-theme=light] .bg--warm-white .btn:focus,
+[data-theme=light] .bg--warm-white .btn:hover {
+  background-color: #0c2340;
+  background-color: var(--brand-blue);
+  color: #fff
+}
+
+.bg--gray-extra-extra-light {
+  background-color: #f1f2f4;
+  background-color: var(--gray-extra-extra-light);
+  color-scheme: light;
+  --gradient-color: var(--gray-extra-extra-light)
+}
+
+.site-header {
+  border-top: 3px solid var(--brand-gold);
+  border-bottom: var(--border-primary);
+  position: relative;
+  z-index: 100
+}
+
+.header-title {
+  display: flex;
+  padding-block: .6rem
+}
+
+.header-title-name {
+  display: flex;
+  flex-direction: column
+}
+
+.site-title {
+  font-family: GPC, Galaxie Polaris Condensed, Arial Narrow, Arial, san-serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: .02em;
+  line-height: 1.15em;
+  text-align: left !important;
+  margin-block: 0
+}
+
+.header-group {
+  align-items: center;
+  display: grid;
+  grid-column: container;
+  grid-row: title;
+  justify-content: space-between;
+  padding-block: .5rem 1.5rem;
+  grid-gap: 2rem;
+  grid-template-columns: 1fr auto
+}
+
+.header-group .nav-primary {
+  width: 100%
+}
+
+.site-title a,
+.site-title a:hover,
+.site-title a:visited {
+  color: light-dark(#0c2340, #fff);
+  -webkit-text-decoration: none;
+  text-decoration: none
+}
+
+.site-title a:focus {
+  background-color: hsla(0, 0%, 100%, .2)
+}
+
+.header-mark {
+  align-self: flex-start;
+  display: none;
+  height: auto;
+  max-width: 100%;
+  pointer-events: none
+}
+
+.header-mark-mobile {
+  grid-column: screen;
+  --mark-shield: var(--brand-gold);
+  --mark-text: light-dark(var(--gray-dark), #fff);
+  border-bottom: 1px solid light-dark(rgba(0, 0, 0, .12), rgba(193, 205, 221, .25));
+  border-bottom: var(--border-primary);
+  display: block;
+  margin: 0;
+  padding-block: 1rem;
+  width: 100%
+}
+
+.header-mark-mobile:focus {
+  outline: 3px solid #15a6b5;
+  outline-offset: 5px
+}
+
+.header-mark-mobile img {
+  display: block;
+  height: auto;
+  margin-inline: auto;
+  max-width: 100%;
+  width: 10rem
+}
+
+.header-nav {
+  grid-column: 2;
+}
+
+.header-nav .header-util {
+  display: flex;
+  grid-column: 2;
+  grid-gap: 1rem;
+  align-items: center
+}
+
+.header-nav .header-nav-button {
+  display: none
+}
+
+.header-nav .header-nav-button .btn {
+  margin-inline: 0;
+  width: -moz-max-content;
+  width: max-content
+}
+
+.nav-primary {
+    border-bottom: 0 solid transparent;
+    display: inline-block;
+    padding-bottom: 1rem;
+    font-size: 1rem;
+    position: relative;
+    font-weight: 200;
+    transition: all var(--anim-duration-moderate)
+}
+
+.nav-primary ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    opacity: 1;
+    position: relative;
+    transition: all 1s
+}
+
+.nav-primary a {
+    align-items: center;
+    color: light-dark(var(--brand-blue), #fff);
+    display: flex;
+    height: 100%;
+    line-height: 1.2;
+    padding: 0.75rem 0.75rem;
+    position: relative;
+    text-decoration: none;
+    transition: all var(--anim-duration) var(--anim-ease)
+}
+
+.nav-primary a:after {
+    border-bottom: 1px solid var(--brand-gold);
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 1rem;
+    opacity: 0;
+    position: absolute;
+    right: 1rem
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .nav-primary a:after {
+        transition: all var(--anim-duration)
+    }
+}
+
+.nav-primary a:focus:after,
+.nav-primary a:hover:after {
+    bottom: .625rem;
+    opacity: 1
+}
+
+.nav-primary .active a,
+.nav-primary .current {
+    font-weight: 600
+}
+
+.nav-primary .active a:after,
+.nav-primary .current:after {
+    bottom: .625rem;
+    opacity: 1
+}
+
+/* ─── Buttons ───────────────────────────────────────────────── */
+.btn {
+    align-self: flex-start;
+    background-color: transparent;
+    border: var(--border-primary);
+    border-radius: 2rem;
+    color: var(--brand-blue);
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: .02em;
+    line-height: 1.4;
+    margin-inline: 0 1rem;
+    padding: .75em 2em .825em;
+    text-align: center;
+    text-decoration: none;
+    text-wrap: pretty;
+    transition: all var(--anim-duration-fast) var(--anim-ease)
+}
+
+.btn:focus,
+.btn:hover {
+    background-color: var(--brand-blue);
+    color: var(--white);
+    text-decoration: none;
+    transform: scale(1.06)
+}
+
+.btn:visited {
+  color: var(--brand-blue)
+}
+
+.btn:focus {
+    border-color: var(--link-focus);
+    outline: none
+}
+
+.btn:active {
+    background-color: inherit;
+    color: inherit
+}
+
+/* btn--more */
+.btn.btn--more:not(:has(svg)):not([href^=http]) {
+    padding-inline-end: 1.5em
+}
+
+/* btn--neutral */
+.btn:not(.btn--cta).btn--neutral {
+    border-color: var(--white)
+}
+
+.btn:not(.btn--cta).btn--neutral:hover {
+    background-color: var(--brand-blue);
+    color: var(--white);
+}
+
+.btn:not(.btn--cta).btn--neutral:focus {
+    background-color: var(--gray);
+    border-color: var(--link-focus);
+    color: var(--white)
+}
+
+/* btn--cta */
+.btn--cta {
+    background-color: var(--white);
+    border-color: var(--border-primary);
+    color: var(--brand-blue)
+}
+
+.btn--cta:focus,
+.btn--cta:hover {
+    background-color: var(--sky-blue);
+    color: var(--brand-blue)
+}
+
+.btn--cta:focus {
+    border-color: var(--link-focus)
+}
+
+.btn--cta:visited {
+    color: var(--brand-blue-dark)
+}
+
+/* btn--more */
+.btn--more {
+    background-color: var(--transparent);
+    color: var(--white)
+}
+
+.btn--more:focus,
+.btn--more:hover {
+    background-color: var(--brand-blue);
+    color: var(--white);
+}
+
+.btn--more:focus {
+    border-color: var(--link-focus)
+}
+
+.btn--more:visited {
+    color: var(--white)
+}
+
+/* ─── Accessibility ─────────────────────────────────────────── */
+.visually-hidden {
+    border: 0;
+    position: absolute;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    white-space: nowrap;
+    width: 1px
+}

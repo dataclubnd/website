@@ -78,7 +78,7 @@ export default function Projects() {
             Projects
           </h1>
 
-          <p className="text-gray-600 text-base md:text-lg mx-auto">
+          <p className="text-gray-600 text-sm md:text-lg mx-auto">
             Data Club projects are semester-long, student-led collaborations where
             members work with real datasets and company partners. Projects span data
             analysis, data engineering, software development, machine learning, and more.
@@ -95,7 +95,7 @@ export default function Projects() {
 
         <section className="bg--brand-blue">
           <div className="max-w-6xl mx-auto p-12 text-center">
-            <h3 className=" text-lg md:text-2xl font-bold">
+            <h3 className=" text-lg md:text-2xl font-bold mb-6">
               Interested in joining a project?
             </h3>
 
@@ -180,7 +180,7 @@ export default function Projects() {
                 {project.term} {project.year}
               </p>
             
-              <p className="mt-2 text-gray-700">
+              <p className="mt-2 text-sm text-gray-700">
                 {project.description}
               </p>
             
