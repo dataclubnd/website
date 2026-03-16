@@ -3,7 +3,7 @@ import Logo from "../assets/DataClubLogo.svg"
 
 export default function Header() {
   return (
-    <header id="header" className="site-header bg--brand-blue flex center">
+    <header id="header" className="site-header bg--brand-blue text-white flex center">
       <div className="max-w-100">
 
         {/* Logo + Site Title */}
