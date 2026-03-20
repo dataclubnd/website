@@ -139,7 +139,7 @@ color: var(--brand-blue);
 .site-title a,
 .site-title a:hover,
 .site-title a:visited {
-  color: light-dark(#0c2340, #fff);
+  color: var(--white);
   -webkit-text-decoration: none;
   text-decoration: none
 }
@@ -224,7 +224,7 @@ color: var(--brand-blue);
 
 .nav-primary a {
     align-items: center;
-    color: light-dark(var(--brand-blue), #fff);
+    color: var(--white);
     display: flex;
     height: 100%;
     line-height: 1.2;
