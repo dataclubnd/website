@@ -31,9 +31,9 @@ export default function CTASection() {
             />
 
             <CTACard
-            to="/events"
-            target="_self"
-            text="View Upcoming Events"
+            to="https://www.paypal.com/ncp/payment/KLLKM53LSSZDA"
+            target="_blank"
+            text="Pay Dues"
             color="bg-gray-900"
             hover="hover:bg-gray-800"
             />
