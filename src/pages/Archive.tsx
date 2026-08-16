@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { supabase } from '../services/supabaseClient'
+import projectsData from "../content/projects.json"
+import eventsData from "../content/events.json"
 
 type Event = {
   title: string
@@ -10,10 +11,10 @@ type Event = {
 }
 
 type Project = {
-  company: string
+  title: string
   description: string
   term: string
-  year: number
+  year: string
   image: string
   link: string
 }
@@ -34,53 +35,62 @@ export default function Archive() {
   const [yearFilter, setYearFilter] = useState<string>("")
   const [searchProjectsFilter, setSearchProjectsFilter] = useState<string>("")
 
+    // Dynamically import all images from the assets folder
+    const images = import.meta.glob("../content/assets/*", { eager: true });
+
+    const resolveImage = (imageName: string) => {
+      const imagePath = `../content/assets/${imageName}`;
+      if (images[imagePath]) {
+        return (images[imagePath] as any).default; // Access the default export of the image
+      } else {
+        console.error(`Image not found: ${imageName}`);
+        return ""; // Return an empty string if the image is not found
+      }
+    };
+
   useEffect(() => {
     const fetchProjects = async () => {
-      const { data, error } = await supabase
-        .from('projects')
-        .select('*')
 
-      if (error) {
-        setErrorProjects(error.message)
-      } else {
-        setProjects(data)
+      try{
+      setProjects(projectsData);
+      } catch (error: any) {
+        setErrorProjects(error.message);
+      } finally {
+        setLoadingProjects(false);
       }
-      setLoadingProjects(false)
-    }
+    };
 
     fetchProjects()
   }, [])
 
   useEffect(() => {
-    const fetchEvents = async () => {
-
-      const { data, error } = await supabase
-        .from('events')
-        .select('*')
-        .order('time', { ascending: true })
-
-      console.log(data)
-
-      if (error) {
-        setErrorEvents(error.message)
-      } else {
-        setEvents(data)
+    const fetchEvents = async () => {  
+      try{
+        // Sort events by time in descending order
+        eventsData.sort((a: { time: string }, b: { time: string }) => {
+          return new Date(b.time).getTime() - new Date(a.time).getTime();
+        });
+  
+        setEvents(eventsData);
+      } catch (error: any) {
+        setErrorEvents(error.message);
+      } finally {
+        setLoadingEvents(false);
       }
-      setLoadingEvents(false)
-    }
-
-    fetchEvents()
-  }, [])
+    };
+  
+    fetchEvents();
+  }, []);
 
   const filteredProjects = projects.filter((project) => {
     const matchesTerm =
       termFilter === "All" || project.term === termFilter
   
     const matchesYear =
-      yearFilter === "" || project.year === Number(yearFilter)
+      yearFilter === "" || project.year === yearFilter
   
     const matchesSearch =
-      project.company.toLowerCase().includes(searchProjectsFilter.toLowerCase()) ||
+      project.title.toLowerCase().includes(searchProjectsFilter.toLowerCase()) ||
       project.description.toLowerCase().includes(searchProjectsFilter.toLowerCase())
   
     return matchesTerm && matchesYear && matchesSearch
@@ -166,7 +176,7 @@ export default function Archive() {
               className="border rounded-lg p-4 shadow-sm flex flex-col h-full"
             >
               <h3 className="text-xl md:text-2xl font-semibold">
-                {project.company}
+                {project.title}
               </h3>
             
               <p className="text-sm md:text-lg text-gray-500">
@@ -199,8 +209,8 @@ export default function Archive() {
             
               <div className="flex-1 flex items-center justify-center mt-4">
                 <img
-                  src={project.image}
-                  alt={project.company}
+                  src={resolveImage(project.image)}
+                  alt={project.title}
                   className="rounded w-40"
                 />
               </div>

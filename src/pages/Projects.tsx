@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
-import { supabase } from '../services/supabaseClient'
 import { Link } from 'react-router-dom'
+import projectsData from "../content/projects.json"
 
 type Project = {
-  company: string
+  title: string
   description: string
   term: string
-  year: number
+  year: string
   image: string
   link: string
 }
@@ -20,29 +20,42 @@ export default function Projects() {
   const [yearFilter, setYearFilter] = useState<string>("")
   const [searchFilter, setSearchFilter] = useState<string>("")
 
+  // Dynamically import all images from the assets folder
+  const images = import.meta.glob("../content/assets/*", { eager: true });
+
+  const resolveImage = (imageName: string) => {
+    const imagePath = `../content/assets/${imageName}`;
+    if (images[imagePath]) {
+      return (images[imagePath] as any).default; // Access the default export of the image
+    } else {
+      console.error(`Image not found: ${imageName}`);
+      return ""; // Return an empty string if the image is not found
+    }
+  };
 
   useEffect(() => {
     const fetchProjects = async () => {
 
-      const now = new Date()
-      const currentYear = now.getFullYear()
-      const currentMonth = now.getMonth() + 1
-  
-      const currentTerm = currentMonth >= 8 ? "Fall" : "Spring"
+      try {
+        const now = new Date()
+        const currentYear = now.getFullYear()
+        const currentMonth = now.getMonth() + 1
+    
+        const currentTerm = currentMonth >= 8 ? "Fall" : "Spring"
 
-      const { data, error } = await supabase
-        .from('projects')
-        .select('*')
-        .eq('year', currentYear)
-        .eq('term', currentTerm)
+          // Filter projects based on the current year and term
+          const filteredData = projectsData.filter(
+            (project: { year: string; term: string }) =>
+              project.year === currentYear.toString() && project.term === currentTerm
+          );
 
-      if (error) {
-        setError(error.message)
-      } else {
-        setProjects(data)
+        setProjects(projectsData);
+      } catch (error: any) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false)
-    }
+    };
 
     fetchProjects()
   }, [])
@@ -52,10 +65,10 @@ export default function Projects() {
       termFilter === "All" || project.term === termFilter
   
     const matchesYear =
-      yearFilter === "" || project.year === Number(yearFilter)
+      yearFilter === "" || project.year === yearFilter
   
     const matchesSearch =
-      project.company.toLowerCase().includes(searchFilter.toLowerCase()) ||
+      project.title.toLowerCase().includes(searchFilter.toLowerCase()) ||
       project.description.toLowerCase().includes(searchFilter.toLowerCase())
   
     return matchesTerm && matchesYear && matchesSearch
@@ -167,7 +180,7 @@ export default function Projects() {
               className="border rounded-lg p-4 shadow-sm flex flex-col h-full"
             >
               <h3 className="text-xl md:text-2xl font-semibold">
-                {project.company}
+                {project.title}
               </h3>
             
               <p className="text-sm md:text-lg text-gray-500">
@@ -200,8 +213,8 @@ export default function Projects() {
             
               <div className="flex-1 flex items-center justify-center mt-4">
                 <img
-                  src={project.image}
-                  alt={project.company}
+                  src={resolveImage(project.image)}
+                  alt={project.title}
                   className="rounded w-40"
                 />
               </div>

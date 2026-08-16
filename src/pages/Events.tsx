@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { supabase } from '../services/supabaseClient'
+import eventsData from "../content/events.json"
 
 type Event = {
   title: string
@@ -19,25 +19,35 @@ export default function Events() {
 
   useEffect(() => {
     const fetchEvents = async () => {
-
-      const now = new Date().toISOString()
-
-      const { data, error } = await supabase
-        .from('events')
-        .select('*')
-        .gte('time', now) 
-        .order('time', { ascending: true })
-
-      if (error) {
-        setError(error.message)
-      } else {
-        setEvents(data)
+      const now = new Date();
+  
+      try {
+        const response = await fetch("/src/content/events.json");
+        if (!response.ok) {
+          throw new Error("Failed to fetch events.json");
+        }
+    
+        /* Filter events to include only those with a time greater than or equal to now
+        const filteredData = eventsData.filter((event: { time: string }) => {
+          const eventTime = new Date(event.time);
+          return eventTime >= now;
+        });*/
+  
+        // Sort events by time in ascending order
+        eventsData.sort((a: { time: string }, b: { time: string }) => {
+          return new Date(a.time).getTime() - new Date(b.time).getTime();
+        });
+  
+        setEvents(eventsData);
+      } catch (error: any) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false)
-    }
-
-    fetchEvents()
-  }, [])
+    };
+  
+    fetchEvents();
+  }, []);
 
   const filteredEvents = events.filter((event) => {
     const matchesSearch =
@@ -142,7 +152,7 @@ export default function Events() {
                 📍 {event.location}
                 </p>
 
-                <p className="mt-2 text-gray-700">
+                <p className="mt-2 text-gray-700 mb-3">
                 {event.description}
                 </p>
 
