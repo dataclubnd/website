@@ -13,7 +13,7 @@ def main():
         link = input("Project link to see result: ")
 
         project = {
-            "image": f"../content/assets/{image}",
+            "image": image,
             "title": title,
             "description": desc,
             "year": year,

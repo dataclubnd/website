@@ -6,5 +6,13 @@
         "year": "2025",
         "term": "Spring",
         "link": "https://github.com/ralzina/DataClub_8451_SP25_Project"
+    },
+    {
+        "image": "wf.png",
+        "title": "Wells Fargo: Secure API Transaction Handler",
+        "description": "Build a secure API for financial transactions that uses cryptographic algorithms to secure the information being handled.",
+        "year": "2026",
+        "term": "Fall",
+        "link": "wellsfargo.com"
     }
 ]

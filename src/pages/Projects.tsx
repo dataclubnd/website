@@ -49,7 +49,7 @@ export default function Projects() {
               project.year === currentYear.toString() && project.term === currentTerm
           );
 
-        setProjects(projectsData);
+        setProjects(filteredData);
       } catch (error: any) {
         setError(error.message);
       } finally {

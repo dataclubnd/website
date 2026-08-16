@@ -27,18 +27,18 @@ export default function Events() {
           throw new Error("Failed to fetch events.json");
         }
     
-        /* Filter events to include only those with a time greater than or equal to now
+        // Filter events to include only those with a time greater than or equal to now
         const filteredData = eventsData.filter((event: { time: string }) => {
           const eventTime = new Date(event.time);
           return eventTime >= now;
-        });*/
+        });
   
         // Sort events by time in ascending order
-        eventsData.sort((a: { time: string }, b: { time: string }) => {
+        filteredData.sort((a: { time: string }, b: { time: string }) => {
           return new Date(a.time).getTime() - new Date(b.time).getTime();
         });
   
-        setEvents(eventsData);
+        setEvents(filteredData);
       } catch (error: any) {
         setError(error.message);
       } finally {
