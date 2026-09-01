@@ -6,6 +6,8 @@ import imgProjectGalleryFL25 from "../assets/ProjectGallerySP25.png";
 import DashboardCard from "../components/DashboardCard";
 import WhatWeDoCard from "../components/WhatWeDoCard";
 import CTASection from "../components/CTA";
+import projectsData from "../content/projects.json"
+import eventsData from "../content/events.json"
 
 import { useEffect, useState } from "react";
 
@@ -45,22 +47,21 @@ export default function Home() {
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const response = await fetch("/src/content/projects.json");
-        if (!response.ok) {
-          throw new Error("Failed to fetch projects.json");
-        }
-
-        const data: Project[] = await response.json();
-
-        // Sort projects by year (descending) and term (ascending)
-        const sortedProjects = data.sort((a, b) => {
-          const yearDiff = parseInt(b.year) - parseInt(a.year);
-          if (yearDiff !== 0) return yearDiff;
-
-          const termOrder = { Spring: 1, Fall: 2 };
-          return termOrder[a.term] - termOrder[b.term];
+        // Transform projectsData to ensure term is "Spring" or "Fall"
+        const transformedProjects = projectsData.map((project) => {
+          const validTerm = project.term === "Spring" || project.term === "Fall" ? project.term : "Spring"; // Default to "Spring" if invalid
+          return { ...project, term: validTerm as "Spring" | "Fall" };
         });
-
+  
+        // Sort projects by year (descending) and term (Spring before Fall)
+        const sortedProjects = transformedProjects.sort((a, b) => {
+          const yearDiff = parseInt(b.year) - parseInt(a.year); // Descending order by year
+          if (yearDiff !== 0) return yearDiff;
+  
+          const termOrder = { Spring: 1, Fall: 2 };
+          return termOrder[a.term] - termOrder[b.term]; // Spring before Fall
+        });
+  
         // Get the most recent project
         setProject(sortedProjects[0] || null);
       } catch (error: any) {
@@ -69,23 +70,16 @@ export default function Home() {
         setLoadingProject(false);
       }
     };
-
+  
     fetchProject();
   }, []);
 
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const response = await fetch("/src/content/events.json");
-        if (!response.ok) {
-          throw new Error("Failed to fetch events.json");
-        }
-
-        const data: Event[] = await response.json();
-
         // Filter events to include only those with a time greater than or equal to now
         const now = new Date();
-        const upcomingEvents = data.filter((event) => new Date(event.time) >= now);
+        const upcomingEvents = eventsData.filter((event) => new Date(event.time) >= now);
 
         // Sort events by time in ascending order
         const sortedEvents = upcomingEvents.sort(
