@@ -59,7 +59,7 @@ export default function Home() {
           if (yearDiff !== 0) return yearDiff;
   
           const termOrder = { Spring: 1, Fall: 2 };
-          return termOrder[a.term] - termOrder[b.term]; // Spring before Fall
+          return termOrder[b.term] - termOrder[a.term]; // Spring before Fall
         });
   
         // Get the most recent project
