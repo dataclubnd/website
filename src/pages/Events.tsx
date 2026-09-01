@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import eventsData from "../content/events.json"
 
 type Event = {
   title: string
@@ -20,16 +21,9 @@ export default function Events() {
     const fetchEvents = async () => {
       const now = new Date();
   
-      try {
-        const response = await fetch("/src/content/events.json");
-        if (!response.ok) {
-          throw new Error("Failed to fetch events.json");
-        }
-  
-        const data: Event[] = await response.json();
-  
+      try {  
         // Filter events to include only those with a valid time or "TBD"
-        const filteredData = data.filter((event) => {
+        const filteredData = eventsData.filter((event) => {
           if (event.time === "TBD") {
             return true; // Include events with "TBD"
           }
