@@ -13,7 +13,7 @@ type Event = {
 type Project = {
   title: string
   description: string
-  term: string
+  term: "Spring" | "Fall";
   year: string
   image: string
   link: string
@@ -48,20 +48,34 @@ export default function Archive() {
       }
     };
 
-  useEffect(() => {
-    const fetchProjects = async () => {
-
-      try{
-      setProjects(projectsData);
-      } catch (error: any) {
-        setErrorProjects(error.message);
-      } finally {
-        setLoadingProjects(false);
-      }
-    };
-
-    fetchProjects()
-  }, [])
+    useEffect(() => {
+      const fetchProjects = async () => {
+        try {
+          // Transform projectsData to ensure term is "Spring" or "Fall"
+          const transformedProjects = projectsData.map((project) => {
+            const validTerm = project.term === "Spring" || project.term === "Fall" ? project.term : "Spring"; // Default to "Spring" if invalid
+            return { ...project, term: validTerm as "Spring" | "Fall" };
+          });
+    
+          // Sort projects by year (ascending) and term (Spring before Fall)
+          const sortedProjects = transformedProjects.sort((a, b) => {
+            const yearDiff = parseInt(a.year) - parseInt(b.year); // Ascending order by year
+            if (yearDiff !== 0) return yearDiff;
+    
+            const termOrder = { Spring: 1, Fall: 2 };
+            return termOrder[a.term] - termOrder[b.term]; // Spring before Fall
+          });
+    
+          setProjects(sortedProjects);
+        } catch (error: any) {
+          setErrorProjects(error.message);
+        } finally {
+          setLoadingProjects(false);
+        }
+      };
+    
+      fetchProjects();
+    }, []);
 
   useEffect(() => {
     const fetchEvents = async () => {  

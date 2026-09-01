@@ -6,7 +6,7 @@ def main():
 
     if option == "p":
         image = input("Enter the name of the image file inside src/content/assets: ")
-        title = input("Project title (include company e.g. Aunalytics: SQL to NL conversion with LLM): ")
+        title = input("Project title (recommended to include company and mini title description e.g. Aunalytics: SQL to NL conversion with LLM): ")
         desc = input("Project description: ")
         year = input("Project Year (YYYY): ")
         term = input("Project term (Fall|Spring): ")

@@ -103,7 +103,7 @@ export default function Projects() {
             </h3>
 
             <Link
-              to="https://docs.google.com/forms/d/e/1FAIpQLSdKD76jefuYAhrbGf8yLVUGiJIE_jSfXw-t87OdwB7ACxp8zw/viewform?usp=publish-editor"
+              to=""
               className="
                 inline-flex items-center justify-center
                 rounded-lg
@@ -114,7 +114,7 @@ export default function Projects() {
                 transition
               "
             >
-              Apply for Projects
+              Apply for Projects (coming soon)
             </Link>
           </div>
         </section>
@@ -257,6 +257,7 @@ export default function Projects() {
                         transition
                         text-white
                       "
+                      target="_blank"
                       >
                         Pay Dues
                       </Link>

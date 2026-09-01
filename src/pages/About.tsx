@@ -49,6 +49,12 @@ export default function About() {
             data, building analyses, designing systems, and collaborating 
             in teams they learn to provide solutions to open-ended problems.<br/><br/>
 
+            The best part is that no experience is required! We have projects
+            of all levels from beginner to advanced so that anyone can get as much as
+            they want to from the club. We actually recommend that you step into a project
+            related to something you don't know much about. The whole point is to use
+            this as an opportunity to learn!<br/><br/>
+
             Through these experiences, students don't just learn technical 
             skills; they learn how to communicate ideas, plan effectively, 
             and work together to deliver results in real-world environments. 

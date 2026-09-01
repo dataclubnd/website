@@ -1,9 +1,16 @@
 [
     {
-        "title": "First Club Meeting",
-        "description": "Learn about our plans for this semester and upcoming projects!",
-        "location": "Debart 101",
-        "time": "2026-08-19T16:30",
-        "link": "https://google.com"
+        "title": "Kick Off Meeting and Project Intros",
+        "description": "Meet the new board, our plans for the semester, and get to know all of our projects to get involved! We will have pizza!",
+        "location": "141 DeBartolo Hall",
+        "time": "2026-09-07T18:00",
+        "link": ""
+    },
+    {
+        "title": "SOLAS Introductory Workshop",
+        "description": "Get an idea of our learning project SOLAS and the opportunities we will have throughout the semester!",
+        "location": "155 DeBartolo Hall",
+        "time": "2026-09-09T18:00",
+        "link": ""
     }
 ]

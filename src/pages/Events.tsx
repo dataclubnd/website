@@ -26,15 +26,23 @@ export default function Events() {
         if (!response.ok) {
           throw new Error("Failed to fetch events.json");
         }
-    
-        // Filter events to include only those with a time greater than or equal to now
-        const filteredData = eventsData.filter((event: { time: string }) => {
+  
+        const data: Event[] = await response.json();
+  
+        // Filter events to include only those with a valid time or "TBD"
+        const filteredData = data.filter((event) => {
+          if (event.time === "TBD") {
+            return true; // Include events with "TBD"
+          }
+  
           const eventTime = new Date(event.time);
-          return eventTime >= now;
+          return eventTime >= now; // Include events with a valid time greater than or equal to now
         });
   
-        // Sort events by time in ascending order
-        filteredData.sort((a: { time: string }, b: { time: string }) => {
+        // Sort events by time in ascending order, placing "TBD" events at the end
+        filteredData.sort((a, b) => {
+          if (a.time === "TBD") return 1; // "TBD" goes to the end
+          if (b.time === "TBD") return -1; // "TBD" goes to the end
           return new Date(a.time).getTime() - new Date(b.time).getTime();
         });
   
@@ -52,14 +60,26 @@ export default function Events() {
   const filteredEvents = events.filter((event) => {
     const matchesSearch =
       event.title.toLowerCase().includes(searchFilter.toLowerCase()) ||
-      event.description.toLowerCase().includes(searchFilter.toLowerCase())
+      event.description.toLowerCase().includes(searchFilter.toLowerCase());
   
     const matchesDate =
-      !dateFilter ||
-      new Date(event.time) >= new Date(dateFilter)
+      !dateFilter || event.time === "TBD" || 
+      (event.time !== "TBD" && new Date(event.time) >= new Date(dateFilter));
   
-    return matchesSearch && matchesDate
-  })  
+    return matchesSearch && matchesDate;
+  });
+
+  const setDate = (time: string): string => {
+    if (time == "TBD"){
+      return "TBD";
+    } else return new Date(time).toLocaleString(undefined, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+    })
+  }
 
   return (
     <>
@@ -139,13 +159,7 @@ export default function Events() {
                 </h3>
 
                 <p className="text-sm text-gray-500 mt-2">
-                🗓️ {new Date(event.time).toLocaleString(undefined, {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-                hour: "numeric",
-                minute: "2-digit",
-                })}
+                🗓️ {setDate(event.time)}
                 </p>
 
                 <p className="text-sm text-gray-500 mt-2">

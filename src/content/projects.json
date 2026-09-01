@@ -1,7 +1,7 @@
 [
     {
         "image": "8451.jpeg",
-        "title": "84.51: Transactions Analysis",
+        "title": "84.51\u00ba",
         "description": "Analyzed 20 million lines of transaction data with information from coupons and customer loyalty programs to determine trends and recommendations to increase sales and revenue.",
         "year": "2025",
         "term": "Spring",
@@ -9,10 +9,82 @@
     },
     {
         "image": "wf.png",
-        "title": "Wells Fargo: Secure API Transaction Handler",
-        "description": "Build a secure API for financial transactions that uses cryptographic algorithms to secure the information being handled.",
+        "title": "Wells Fargo",
+        "description": "",
         "year": "2026",
         "term": "Fall",
-        "link": "wellsfargo.com"
+        "link": ""
+    },
+    {
+        "image": "boeing.png",
+        "title": "Boeing",
+        "description": "",
+        "year": "2026",
+        "term": "Fall",
+        "link": ""
+    },
+    {
+        "image": "crowe.png",
+        "title": "Crowe",
+        "description": "",
+        "year": "2026",
+        "term": "Fall",
+        "link": ""
+    },
+    {
+        "image": "epic.jpg",
+        "title": "Epic",
+        "description": "",
+        "year": "2026",
+        "term": "Fall",
+        "link": ""
+    },
+    {
+        "image": "p&g.jpeg",
+        "title": "P&G",
+        "description": "",
+        "year": "2026",
+        "term": "Fall",
+        "link": ""
+    },
+    {
+        "image": "SOLAS.png",
+        "title": "SOLAS",
+        "description": "Introductory project with guidance from the board and a great opportunity to gain experience on combining technical and professional skills from scratch.",
+        "year": "2026",
+        "term": "Fall",
+        "link": ""
+    },
+    {
+        "image": "nsa.png",
+        "title": "National Security Agency",
+        "description": "",
+        "year": "2026",
+        "term": "Fall",
+        "link": ""
+    },
+    {
+        "image": "sustainability.png",
+        "title": "Office of Sustainability",
+        "description": "",
+        "year": "2026",
+        "term": "Fall",
+        "link": ""
+    },
+    {
+        "image": "aunalytics.png",
+        "title": "Aunalytics: SQL to NL conversion with LLM",
+        "description": "Created an application that can transform natural language into SQL queries when working with a database.",
+        "year": "2026",
+        "term": "Spring",
+        "link": "https://github.com/Matusvec/aunalyticsNLSQL"
+    },
+    {
+        "image": "lucyinstitute.png",
+        "title": "Health Equity Data Challenge",
+        "description": "Analyzed health data from multiple hospitals along with census data to determine price differences for similar treatments in urban and rural areas.",
+        "year": "2024",
+        "term": "Fall",
+        "link": "https://github.com/ralzina/Health_Equity_DataChallenge"
     }
 ]
