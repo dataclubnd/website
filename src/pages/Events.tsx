@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import eventsData from "../content/events.json"
 
 type Event = {
   title: string
