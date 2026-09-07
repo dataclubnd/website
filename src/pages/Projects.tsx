@@ -103,7 +103,7 @@ export default function Projects() {
             </h3>
 
             <Link
-              to=""
+              to="https://forms.gle/i1UeHG1hy6ntdVSP6"
               className="
                 inline-flex items-center justify-center
                 rounded-lg
@@ -114,7 +114,7 @@ export default function Projects() {
                 transition
               "
             >
-              Apply for Projects (coming soon)
+              Apply for Projects
             </Link>
           </div>
         </section>

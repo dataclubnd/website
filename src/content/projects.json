@@ -10,15 +10,7 @@
     {
         "image": "wf.png",
         "title": "Wells Fargo",
-        "description": "",
-        "year": "2026",
-        "term": "Fall",
-        "link": ""
-    },
-    {
-        "image": "boeing.png",
-        "title": "Boeing",
-        "description": "",
+        "description": "Learn professional SWE skills by creating a web application that interacts with Wells Fargo’s internal foreign exchange data to allow customers to see and interact with the different currency rates to make more informed decisions when moving their money between different currencies. This project is a hands on introduction to software development. It will involve knowledge of web development, networking, and APIs, but none of it is required. Recommended for people interested in SWE.",
         "year": "2026",
         "term": "Fall",
         "link": ""
@@ -26,7 +18,7 @@
     {
         "image": "crowe.png",
         "title": "Crowe",
-        "description": "",
+        "description": "Work with Crowe to analyze NCAA bowl game performance and explore how it relates to recruiting, transfers, AP rankings, and conference changes. The team will combine data from multiple sources, build automated data pipelines and a structured SQL database, and create three interactive dashboards in Power BI or Tableau. These dashboards will highlight trends across teams and conferences, with findings presented to Crowe’s partners at the end of the semester. Basic SQL, data cleaning, data analysis, Power BI or Tableau is helpful.",
         "year": "2026",
         "term": "Fall",
         "link": ""
@@ -34,7 +26,7 @@
     {
         "image": "epic.jpg",
         "title": "Epic",
-        "description": "",
+        "description": "This project asks which factors predict whether a diabetic patient will be readmitted to the hospital within 30 days of discharge, and what a simple risk flagging tool built on those factors would look like for hospital staff. Using ten years of records from 130 US hospitals, students will clean a large, messy clinical dataset, identify which patient and treatment factors actually carry signal, build an interpretable predictive model, and turn it into a red/yellow/green risk flag a nurse could act on before discharge. The goal mirrors a real Epic product: a readmission risk score used by health systems nationwide. This project is an accessible, hands on introduction for newer students to the full analytics workflow, covering data cleaning, exploratory analysis, predictive modeling in Python, dashboard building, and communicating results to a non-technical audience. No prior healthcare or machine learning experience required.",
         "year": "2026",
         "term": "Fall",
         "link": ""
@@ -42,7 +34,7 @@
     {
         "image": "p&g.jpeg",
         "title": "P&G",
-        "description": "",
+        "description": "Analyze over 56,000 P&G product reviews to understand what customers value most and where products fall short of their expectations. The team will use data analytics, natural language processing, and machine learning to identify recurring themes, such as cleaning performance, scent, packaging, and ease of use, and compare feedback across products, brands, and categories. These findings will inform a set of prioritized product improvement recommendations, supported by customer review excerpts, quantitative evidence, and clear visualizations.",
         "year": "2026",
         "term": "Fall",
         "link": ""
@@ -50,7 +42,7 @@
     {
         "image": "SOLAS.png",
         "title": "SOLAS",
-        "description": "Introductory project with guidance from the board and a great opportunity to gain experience on combining technical and professional skills from scratch.",
+        "description": "This project will work with 2 years of real data collected by the Data Club. This project aims to come up with three changes to implement next semester. Group members will select a metric they aim to improve, outline a plan and provide analysis to back up their assessment. As part of the project, members will explore a wide range of Python based technologies, from data visualization and analysis libraries to machine learning models. This is more of a beginner project meant for those especially coming out from the learning project or starting off with data analytics. Mentorship will be provided from the Data Club Board. Additionally, this project will encourage the proper use of AI tools and IDE’s, looking to explore their use within this project and beyond.",
         "year": "2026",
         "term": "Fall",
         "link": ""
@@ -58,15 +50,31 @@
     {
         "image": "nsa.png",
         "title": "National Security Agency",
-        "description": "",
+        "description": "Malware comes in families. Emotet, njRAT, and Mirai each have thousands of variants, and analysts need to know which family a suspicious file belongs to in order to understand what it does and how to respond. This project asks whether a machine learning model can identify a file's family just by looking at its structure, without ever running the file. Using a public dataset of millions of already-confirmed malicious files, students will build a classifier that sorts samples into families, then dig into where it gets things wrong and why. This project is a hands on introduction to machine learning for cybersecurity, covering working with large datasets, building and evaluating classification models in Python, diagnosing model errors, and explaining results to a non technical audience. No security background required.",
         "year": "2026",
         "term": "Fall",
         "link": ""
     },
     {
         "image": "sustainability.png",
-        "title": "Office of Sustainability",
-        "description": "",
+        "title": "Office of Sustainability: Space Utilization",
+        "description": "Use campus occupancy sensor data to stop heating, cooling, and lighting empty rooms. You will analyze over half a million sensor readings from 83 rooms to figure out when people are actually using these spaces versus when a sensor is simply broken or miscalibrated. By identifying these real usage patterns, you will build a smart scheduling system that automatically dials down energy use in truly empty spaces, saving electricity and cutting carbon emissions without making campus spaces uncomfortable.",
+        "year": "2026",
+        "term": "Fall",
+        "link": ""
+    },
+    {
+        "image": "sustainability.png",
+        "title": "Office of Sustainability: Facility Conditions",
+        "description": "Create an automated budgeting strategy to help decide which building repairs to fund first when money is limited. You will analyze a dataset of 23,000 building components across 204 campus buildings, representing over $1B in needed maintenance, to balance urgency, financial cost, and the risk of catastrophic failure. By building an optimization algorithm, you will mathematically prove that smart, data-driven spending protects the campus better and saves more money than basic rules of thumb like fixing the oldest items first or cutting budgets evenly.",
+        "year": "2026",
+        "term": "Fall",
+        "link": ""
+    },
+    {
+        "image": "sustainability.png",
+        "title": "Office of Sustainability: Work Order History",
+        "description": "Analyze 72,000 campus maintenance work orders over four years to figure out why certain repairs get delayed or run over budget. You will clean messy maintenance logs and text descriptions to uncover patterns in what breaks, where, and when across campus buildings. By identifying these cost drivers, you will build a simple, practical triage tool that helps facilities dispatchers instantly flag high-risk, high-cost maintenance requests so they can be fixed before turning into major issues.",
         "year": "2026",
         "term": "Fall",
         "link": ""
@@ -86,5 +94,13 @@
         "year": "2024",
         "term": "Fall",
         "link": "https://github.com/ralzina/Health_Equity_DataChallenge"
+    },
+    {
+        "image": "southshoreanalytics.jpeg",
+        "title": "South Shore Analytics: Live LinkedIn Analytics Dashboard",
+        "description": "Build a full end-to-end analytics pipeline that pulls raw LinkedIn data from their Snowflake warehouse and uses dbt transformation models to get a live dashboard that gives a marketing impact analysis. No direct experience with the tools required, everything will be learned throughout. This is real work that will be used by the company, and the contact will be heavily involved.",
+        "year": "2026",
+        "term": "Fall",
+        "link": ""
     }
 ]
