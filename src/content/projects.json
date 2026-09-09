@@ -102,5 +102,13 @@
         "year": "2026",
         "term": "Fall",
         "link": ""
+    },
+    {
+        "image": "boeing.png",
+        "title": "Boeing",
+        "description": "Work with data from the Rocketry Team from the past 10 years, from differently shaped rockets launched on days with different weather conditions.  The goal is to build a prediction mechanism that can be used with live weather data on launch days to predict the landing location. This project is an intermediate project that will teach skills in predictive analytics, data pipelining, and introductory software development / tool building.  The most important knowledge besides basic python is statistics, because feature choice will be essential for working with messy real-world data from weather and previous launches.",
+        "year": "2026",
+        "term": "Fall",
+        "link": ""
     }
 ]
